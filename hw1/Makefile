@@ -4,7 +4,7 @@ OBJECTS_MAIN = main.o
 OBJECTS_HEADER = NumClass.h
 FLAGS = -Wall -g
 
-all: mains maindloop maindrec
+all: mains maindloop maindrec #loops loopd recursives recursivesd
 
 mains: $(OBJECTS_MAIN) libclassrec.a
 	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) libclassrec.a -lm
