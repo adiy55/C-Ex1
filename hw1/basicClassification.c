@@ -1,4 +1,4 @@
-// #include <NumClass.h>
+#include "NumClass.h"
 #include <math.h>
 
 int func(int);
@@ -14,8 +14,8 @@ int isPrime(int n) {
 }
 
 int isStrong(int n) {
-    int sum, rem, check = n, f;
-    while (check != 0) {
+    int sum = 0, rem, check = n, f;
+    while (check > 0) {
         rem = check % 10;
         f = func(rem);
         check = check / 10;
@@ -26,7 +26,7 @@ int isStrong(int n) {
 
 int func(int rem) {
     int ans = 1;
-    for (int i = 1; i <= rem; i++) {
+    for (int i = 2; i <= rem; i++) {
         ans = ans * i;
     }
     return ans;
