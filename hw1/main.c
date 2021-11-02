@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <hw1/NumClass.h>
+// #include <NumClass.h>
 
 int main() { // 0 = false, 1 = true
     int num, ans;

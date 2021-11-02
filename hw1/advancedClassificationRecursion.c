@@ -1,4 +1,4 @@
-#include <hw1/NumClass.h>
+// #include <NumClass.h>
 
 int reversed(int, int);
 int numLen(int);

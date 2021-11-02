@@ -1,4 +1,4 @@
-#include <hw1/NumClass.h>
+// #include <NumClass.h>
 #include <math.h>
 
 int isArmstrong(int n) {
