@@ -4,8 +4,8 @@
 int func(int);
 
 int isPrime(int n) {
-    if (n % 2 == 0 || n <= 0) return 0;
-    for (int i = 3; i <= sqrt(n); i = i + 2) {
+    if (n <= 0) return 0;
+    for (int i = 2; i <= sqrt(n); i++) {
         if (n % i == 0) {
             return 0;
         }
