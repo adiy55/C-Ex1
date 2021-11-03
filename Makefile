@@ -46,6 +46,5 @@ advancedClassificationLoop.o: advancedClassificationLoop.c $(OBJECTS_HEADER)
 advancedClassificationRecursion.o: advancedClassificationRecursion.c $(OBJECTS_HEADER)
 	$(CC) -c advancedClassificationRecursion.c
 
-#.PHONY: clean
 clean: 
 	rm -f *.o *.a *.so mains maindloop maindrec
