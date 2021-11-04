@@ -41,13 +41,13 @@ libclassrec.so: $(OBJECTS_REC) $(OBJECTS_BASIC)
 main.o: main.c NumClass.h
 	$(CC) -c main.c
 
-basicClassification.o: basicClassification.c # $(OBJECTS_HEADER)
+basicClassification.o: basicClassification.c
 	$(CC) -c basicClassification.c -lm
 
-advancedClassificationLoop.o: advancedClassificationLoop.c # $(OBJECTS_HEADER)
+advancedClassificationLoop.o: advancedClassificationLoop.c
 	$(CC) -c advancedClassificationLoop.c -lm
 
-advancedClassificationRecursion.o: advancedClassificationRecursion.c # $(OBJECTS_HEADER)
+advancedClassificationRecursion.o: advancedClassificationRecursion.c
 	$(CC) -c advancedClassificationRecursion.c
 
 clean: 
