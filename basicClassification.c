@@ -14,19 +14,19 @@ int isPrime(int n) {
 }
 
 int isStrong(int n) {
-    int sum = 0, rem, check = n, f;
-    while (check > 0) {
-        rem = check % 10;
-        f = func(rem);
-        check = check / 10;
+    int sum = 0, curr = n, digit, f;
+    while (curr > 0) {
+        digit = curr % 10;
+        f = func(digit); // helper function
+        curr = curr / 10;
         sum = sum + f;
     }
     return (sum == n);
 }
 
-int func(int rem) {
+int func(int d) { // calculates factorial of a given digit
     int ans = 1;
-    for (int i = 2; i <= rem; i++) {
+    for (int i = 2; i <= d; i++) {
         ans = ans * i;
     }
     return ans;

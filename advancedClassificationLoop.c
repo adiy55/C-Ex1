@@ -1,19 +1,26 @@
 #include "NumClass.h"
 #include <math.h>
 
+int numLength(int);
+
 int isArmstrong(int n) {
-    int tmp = n, check = n;
-    double res, rem, lng;
-    while (tmp > 0) {
-        tmp = tmp / 10;
-        lng++;
+    int curr = n, sum = 0, digit;
+    int len = numLength(n); // helper function (above)
+    while (curr > 0) {
+        digit = curr % 10;
+        sum += pow(digit, len);
+        curr = curr / 10;
     }
-    while (check > 0) {
-        rem = check % 10;
-        res += pow(rem, lng);
-        check /= 10;
+    return (sum == n);
+}
+
+int numLength(int num) { // calculates length of the number
+    int l = 0;
+    while (num > 0) {
+        l++;
+        num = num / 10;
     }
-    return (res == n);
+    return l;
 }
 
 int isPalindrome(int n) {

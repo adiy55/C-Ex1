@@ -1,37 +1,40 @@
 #include "NumClass.h"
 
 int reversed(int, int);
+
 int numLen(int);
+
 int calc(int, int);
+
 int power(int, int);
 
 int isArmstrong(int n) {
-    int length, check;
+    int length, ans;
     length = numLen(n);
-    check = calc(n, length);
+    ans = calc(n, length);
 
-    return (check == n);
+    return (ans == n);
 }
 
-int power(int digit, int times) {
-    if (times == 0) {
+int power(int digit, int t) { // multiplies digit t times (recursively)
+    if (t == 0) {
         return 1;
     }
-    return digit * power(digit, --times);
+    return digit * power(digit, t - 1);
 }
 
-int numLen(int n) { // recursive calculation of number of digits (of n)
+int numLen(int n) { // calculates number of digits of n (recursively)
     if (n == 0) {
         return 0;
     }
     return 1 + numLen(n / 10);
 }
 
-int calc(int n, int len) { //Calculating the armStrong of n.
+int calc(int n, int len) { // calculates if n is an armstrong number (recursively)
     if (n == 0) {
         return 0;
     }
-    return power(n % 10, len) + calc(n / 10, len);
+    return power(n % 10, len) + calc(n / 10, len); // uses power helper function for each digit
 }
 
 int isPalindrome(int n) {
