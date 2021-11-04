@@ -1,10 +1,13 @@
 CC = gcc
 AR = ar
 OBJECTS_MAIN = main.o
+OBJECTS_BASIC = basicClassification.o
+OBJECTS_REC = advancedClassificationRecursion.o
+OBJECTS_LOOP = advancedClassificationLoop.o
 OBJECTS_HEADER = NumClass.h
 FLAGS = -Wall -g
 
-all: mains maindloop maindrec # loops loopd recursives recursivesd
+all: mains maindloop maindrec loops loopd recursives recursivesd
 
 mains: $(OBJECTS_MAIN) libclassrec.a
 	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) libclassrec.a -lm
@@ -23,27 +26,28 @@ loopd: libclassloops.so
 
 recursivesd: libclassrec.so
 
-libclassloops.a: advancedClassificationLoop.o basicClassification.o
-	 ar -rcs libclassloops.a advancedClassificationLoop.o basicClassification.o # creates library
+libclassloops.a: $(OBJECTS_LOOP) $(OBJECTS_BASIC)
+	 ar -rcs libclassloops.a $(OBJECTS_LOOP) $(OBJECTS_BASIC) # creates library
 
-libclassloops.so: advancedClassificationLoop.o basicClassification.o
-	 $(CC) -shared -o libclassloops.so advancedClassificationLoop.o basicClassification.o # creates dynamic library
+libclassloops.so: $(OBJECTS_LOOP) $(OBJECTS_BASIC)
+	 $(CC) -shared -o libclassloops.so $(OBJECTS_LOOP) $(OBJECTS_BASIC) # creates dynamic library
 
-libclassrec.a: advancedClassificationRecursion.o basicClassification.o
-	 ar -rcs libclassrec.a advancedClassificationRecursion.o basicClassification.o # creates library
+libclassrec.a: $(OBJECTS_REC) $(OBJECTS_BASIC)
+	 ar -rcs libclassrec.a $(OBJECTS_REC) $(OBJECTS_BASIC) # creates library
 
-libclassrec.so: advancedClassificationRecursion.o basicClassification.o
-	 $(CC) -shared -o libclassrec.so advancedClassificationRecursion.o basicClassification.o # creates dynamic library
+libclassrec.so: $(OBJECTS_REC) $(OBJECTS_BASIC)
+	 $(CC) -shared -o libclassrec.so $(OBJECTS_REC) $(OBJECTS_BASIC) # creates dynamic library
 
 main.o: main.c NumClass.h
+	$(CC) -c main.c
 
-basicClassification.o: basicClassification.c $(OBJECTS_HEADER)
+basicClassification.o: basicClassification.c # $(OBJECTS_HEADER)
 	$(CC) -c basicClassification.c -lm
 
-advancedClassificationLoop.o: advancedClassificationLoop.c $(OBJECTS_HEADER)
+advancedClassificationLoop.o: advancedClassificationLoop.c # $(OBJECTS_HEADER)
 	$(CC) -c advancedClassificationLoop.c -lm
 
-advancedClassificationRecursion.o: advancedClassificationRecursion.c $(OBJECTS_HEADER)
+advancedClassificationRecursion.o: advancedClassificationRecursion.c # $(OBJECTS_HEADER)
 	$(CC) -c advancedClassificationRecursion.c
 
 clean: 
