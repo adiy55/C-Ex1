@@ -7,10 +7,8 @@ int main() { // 0 = false, 1 = true
 
     scanf("%d %d", &num1, &num2);
 
-    if (num2 < num1) {
-        int tmp = num1;
-        num1 = num2;
-        num2 = tmp;
+    if (num1 <= 0 || num2 == 0) {
+        return 0;
     }
 
     printf("The Armstrong numbers are:");
