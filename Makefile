@@ -7,7 +7,7 @@ OBJECTS_LOOP = advancedClassificationLoop.o
 OBJECTS_HEADER = NumClass.h
 FLAGS = -Wall -g
 
-all: mains maindloop maindrec loops loopd recursives recursivesd
+all: mains maindloop maindrec loops loopd recursives recursived
 
 mains: $(OBJECTS_MAIN) libclassrec.a
 	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) libclassrec.a -lm
